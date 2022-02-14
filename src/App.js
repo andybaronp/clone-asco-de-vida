@@ -4,7 +4,6 @@ import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./components/Register";
 import { AuthProvider } from "./context/authContex";
-import Layout from "./components/Layout";
 import Post from "./components/Post";
 import Category from "./pages/Category";
 import Header from "./components/Header";

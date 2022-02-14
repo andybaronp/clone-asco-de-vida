@@ -1,5 +1,6 @@
 import Posts from "./Posts";
 import { Link } from "react-router-dom";
+import TagsCategorys from "./TagsCategorys";
 
 const Home = () => {
   return (
@@ -14,8 +15,9 @@ const Home = () => {
         </Link>
       </div>
 
-      <div className="container mx-auto   flex  ">
+      <div className="flex   ">
         <Posts />
+        <TagsCategorys />
       </div>
     </>
   );

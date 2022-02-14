@@ -4,12 +4,12 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../context/authContex";
 import { db } from "../firebase";
 const categorys = [
-  "Varios",
-  "Amor",
-  "Amistad",
-  "Picante",
-  "Trabajo",
-  "Familia",
+  "varios",
+  "amor",
+  "amistad",
+  "picante",
+  "trabajo",
+  "familia",
 ];
 
 const Post = () => {
