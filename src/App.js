@@ -5,7 +5,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./components/Register";
 import { AuthProvider } from "./context/authContex";
 import Post from "./components/Post";
-import Category from "./pages/Category";
+import Category from "./components/Category";
 import Header from "./components/Header";
 const App = () => {
   return (

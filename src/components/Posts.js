@@ -19,7 +19,6 @@ const Posts = () => {
       );
     });
   };
-  console.log(data);
   useEffect(() => {
     getDataPosts();
   }, []);

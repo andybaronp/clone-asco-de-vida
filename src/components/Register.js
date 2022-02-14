@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/authContex";
 import { Alert } from "./Alert";
+import Button from "./Button";
 
 const Register = () => {
   const { signup, user } = useAuth();
@@ -63,12 +64,7 @@ const Register = () => {
             className="  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <button
-          className=" bg-orange-600 text-white py-1 px-2 rounded
-                font-semibold hover:bg-orange-700 w-full"
-        >
-          Register
-        </button>
+        <Button>Register</Button>
       </form>
       <p className="pb-2  pr-2 flex justify-between font-bold ">
         Already have an account?

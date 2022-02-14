@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/authContex";
 import { Alert } from "./Alert";
+import Button from "./Button";
 
 const Login = () => {
   const { login, loginWithGoogle, user } = useAuth();
@@ -74,12 +75,7 @@ const Login = () => {
           />
         </div>
 
-        <button
-          className="bg-orange-600 text-white py-1 px-2 rounded
-                font-semibold hover:bg-orange-700 w-full"
-        >
-          Login
-        </button>
+        <Button>Login</Button>
       </form>
       <p className="pb-2  font-bold pr-2 flex justify-between ">
         Don't have an Account{" "}

@@ -24,7 +24,7 @@ const Category = () => {
     };
     getDataPosts();
     setData({ ...data, isLoading: false });
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (data.isLoading) return <div className="text-center">Cargando...</div>;
 
