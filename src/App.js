@@ -1,31 +1,32 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./components/Register";
 import { AuthProvider } from "./context/authContex";
-import Post from "./components/Post";
+import NewPost from "./components/NewPost";
 import Category from "./components/Category";
 import Header from "./components/Header";
+import Layout from "./components/Layout";
 const App = () => {
   return (
     <>
       <AuthProvider>
         <Header />
         <Routes>
+          <Route path="/" element={<Layout />} />
           <Route
-            path="post"
+            path="newpost"
             element={
               <ProtectedRoute>
-                <Post />
+                <NewPost />
               </ProtectedRoute>
             }
           />
-          <Route path="/" element={<Home />} />
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="category/:category" element={<Category />} />
+          <Route path="/category/:category" element={<Category />} />
+
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
         </Routes>
       </AuthProvider>
     </>

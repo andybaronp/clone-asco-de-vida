@@ -1,15 +1,16 @@
-import Header from "./Header";
 import Posts from "./Posts";
+import TagsCategorys from "./TagsCategorys";
 
 const Layout = () => {
   return (
-    <>
-      <Header />
-      <div className="container mx-auto h-screen  flex  ">
+    <div className="flex   m-auto w-4/5">
+      <main>
         <Posts />
-      </div>
-      ;
-    </>
+      </main>
+      <section>
+        <TagsCategorys />
+      </section>
+    </div>
   );
 };
 

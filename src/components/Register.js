@@ -45,6 +45,7 @@ const Register = () => {
           <input
             type="email"
             name="email"
+            autoComplete="off"
             onChange={handleChange}
             className="  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
@@ -61,6 +62,7 @@ const Register = () => {
             name="password"
             onChange={handleChange}
             placeholder="********"
+            autoComplete="off"
             className="  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>

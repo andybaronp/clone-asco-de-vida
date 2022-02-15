@@ -53,6 +53,7 @@ const Login = () => {
             Your email
           </label>
           <input
+            autoComplete="off"
             type="email"
             name="email"
             onChange={handleChange}
@@ -67,6 +68,7 @@ const Login = () => {
             Your password
           </label>
           <input
+            autoComplete="off"
             type="password"
             name="password"
             onChange={handleChange}

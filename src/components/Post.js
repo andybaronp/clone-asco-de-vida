@@ -1,116 +1,32 @@
-import { addDoc, collection, Timestamp } from "firebase/firestore";
-import { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router";
-import { useAuth } from "../context/authContex";
-import { db } from "../firebase";
-const categorys = [
-  "varios",
-  "amor",
-  "amistad",
-  "picante",
-  "trabajo",
-  "familia",
-];
 
-const Post = () => {
-  const { user } = useAuth();
-  const userName = user.displayName ? user.displayName : user.email;
-  const [category, setCategory] = useState("Varios");
-  const [newPost, newSetPost] = useState({
-    name: userName,
-    category: "",
-    post: "",
-    createdAt: Timestamp.now(),
-  });
+const Post = ({ id, data }) => {
   const navigate = useNavigate();
 
-  const handleChange = ({ target: { name, value } }) =>
-    newSetPost({ ...newPost, category, [name]: value });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    //validar que no este vacio
-    if (newPost.post.trim() === "") return;
-    try {
-      await addDoc(collection(db, "posts"), newPost);
-      //redireccionar
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
+  const handleCategory = (category) => {
+    navigate(`/category/${category}`);
   };
   return (
-    <div className="w-full max-w-2xl m-auto mt-7 bg-white  rounded p-4">
-      <h3 className="text-gray-900 font-bold mb-4">
-        Por favor, respeta las{" "}
-        <span className="text-orange-500 font-bold">reglas al publicar</span>
-      </h3>
-      <ul className="text-sm mb-2 text-slate-800">
-        <li className="mb-3">
-          * No hay temas tabú, exprésate en 400 caracteres. Evita historias de
-          quinceañeras propias de la SuperPOP.
-        </li>
-        <li className="mb-3 text-orange-500 font-semibold">
-          * Lee y repasa tu mensaje. Escribe correctamente evitando errores
-          ortográficos y lenguaje sms. Los ADV mal redactados y con errores no
-          serán publicados.
-        </li>
-        <li>
-          * Si tu anécdota no es publicada, no te ofendas, ¡agradecemos
-          enormemente tu colaboración!
-        </li>
-      </ul>
-
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-md px-8 pt-6 pb-8 mb-4  rounded"
-      >
-        <div className="flex flex-col">
-          <label htmlFor="category" className=" text-gray-700 text-sm  my-3">
-            Categoria
-          </label>
-          <select
-            className="form-select appearance-none
-      
-      px-3
-      py-1.5
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-orange-200
-      rounded
-      transition
-      ease-in-out
-      m-0
-      focus:text-gray-700 focus:bg-white focus:border-orange-600 focus:outline-none"
-            name="category"
-            onChange={(e) => setCategory(categorys[e.target.selectedIndex])}
-          >
-            {categorys.map((cat) => (
-              <option key={cat} value={cat} className=" ">
-                {cat}
-              </option>
-            ))}
-          </select>
-          <label className=" text-gray-700 text-sm  my-3" htmlFor="post">
-            Post
-          </label>
-          <textarea
-            name="post"
-            type="text"
-            maxLength={300}
-            onChange={handleChange}
-            className="resize-none h-36 w-full mt-2 mb-6 px-4 py-2 border border-orange-200 rounded-lg text-gray-700 focus:outline-none focus:border-orange-600"
-          />
-          <button
-            className="bg-orange-500 text-white py-1 px-2 rounded
-                font-semibold hover:bg-orange-700 w-16"
-          >
-            Enviar
-          </button>
-        </div>
-      </form>
+    <div
+      key={id}
+      className=" flex flex-col align-middle md:h-44 sm:h-64 w-full h-72 m-3 border-solid  border bg-white p-3 rounded-md  text-black "
+    >
+      <div className="text-right text-xs pb-2 text">
+        Publicado por:
+        <span className="capitalize mr-1"> {data.name}</span>
+        <span className="mr-1">
+          {data.createdAt.toDate().toLocaleDateString()}
+        </span>
+        Categoria:
+        <span
+          onClick={() => handleCategory(data.category)}
+          className="  cursor-pointer   px-2 py-1 text-sm text-orange-500   hover:bg-gray-200 hover:text-gray-900"
+        >
+          {data.category}
+        </span>
+      </div>
+      <p className="  min-h-full leading-6	p-2">{data.post}</p>
     </div>
   );
 };

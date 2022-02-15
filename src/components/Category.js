@@ -2,6 +2,8 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase";
+import Post from "./Post";
+import TagsCategorys from "./TagsCategorys";
 
 const Category = () => {
   const { category } = useParams();
@@ -29,20 +31,17 @@ const Category = () => {
   if (data.isLoading) return <div className="text-center">Cargando...</div>;
 
   return (
-    <div className="p-4">
-      {data.data.map((post) => (
-        <div
-          className="m-3 border-solid   border bg-white p-4 rounded-md w-full text-black  "
-          key={post.id}
-        >
-          <div className="text-right pb-2 text">
-            Publicado por:
-            <span className="capitalize"> {post.name} </span> / Categoria:
-            <span className="ml-2 capitalize"> {post.category} </span>
-          </div>
-          <p className="leading-6	">{post.post}</p>
+    <div className="flex   m-auto w-4/5">
+      <main>
+        <div className=" p-4">
+          {data.data.map((post) => (
+            <Post key={post.id} data={post} />
+          ))}
         </div>
-      ))}
+      </main>
+      <section>
+        <TagsCategorys />
+      </section>
     </div>
   );
 };
