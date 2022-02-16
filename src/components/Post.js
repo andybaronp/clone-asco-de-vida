@@ -10,9 +10,9 @@ const Post = ({ id, data }) => {
   return (
     <div
       key={id}
-      className=" flex flex-col align-middle md:h-44 sm:h-64 w-full h-72 m-3 border-solid  border bg-white p-3 rounded-md  text-black "
+      className=" flex flex-col   m-3 border-solid  border bg-white p-2 rounded-md  text-black "
     >
-      <div className="text-right text-xs pb-2 text">
+      <div className="text-right text-xs ">
         Publicado por:
         <span className="capitalize mr-1"> {data.name}</span>
         <span className="mr-1">
@@ -26,7 +26,7 @@ const Post = ({ id, data }) => {
           {data.category}
         </span>
       </div>
-      <p className="  min-h-full leading-6	p-2">{data.post}</p>
+      <p className=" leading-6	p-2">{data.post}</p>
     </div>
   );
 };

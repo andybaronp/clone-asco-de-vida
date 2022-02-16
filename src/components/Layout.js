@@ -3,11 +3,11 @@ import TagsCategorys from "./TagsCategorys";
 
 const Layout = () => {
   return (
-    <div className="flex   m-auto w-4/5">
-      <main>
+    <div className="flex  flex-col  sm:flex-row  ">
+      <main className="flex justify-center ">
         <Posts />
       </main>
-      <section>
+      <section className="w-full">
         <TagsCategorys />
       </section>
     </div>

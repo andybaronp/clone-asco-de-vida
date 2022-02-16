@@ -9,7 +9,7 @@ import Header from "./components/Header";
 import Layout from "./components/Layout";
 const App = () => {
   return (
-    <>
+    <div>
       <AuthProvider>
         <Header />
         <Routes>
@@ -29,7 +29,7 @@ const App = () => {
           <Route path="register" element={<Register />} />
         </Routes>
       </AuthProvider>
-    </>
+    </div>
   );
 };
 

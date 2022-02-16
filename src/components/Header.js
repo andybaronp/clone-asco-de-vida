@@ -19,10 +19,10 @@ const Header = () => {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div className="  w-full   flex-col flex justify-between items-center mb-4  ">
-      <div className="w-full h-12 flex justify-between items-center p-3  bg-neutral-900">
+    <header className="mb-2">
+      <div className=" sm:h-12  flex sm:flex-row flex-nowrap justify-between items-center p-3  bg-neutral-900">
         <Link to={"/"}>
-          <img src={logo} alt="Logo" className="h-10" />
+          <img src={logo} alt="Logo" className="h-10 min-w-fit" />
         </Link>
 
         <div>
@@ -47,24 +47,23 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="flex  h-20 mb-6 justify-between  items-center px-3 mt-2">
-        <div className=" self-start basis-1/3">
-          <img src={logoadv} alt="al" className=" h-36" />
+
+      <div className=" h-60  sm:h-auto   p-3 flex flex-col sm:flex-row items-center  gap-2">
+        <div className="  flex justify-center w-48  sm:w-96">
+          <img src={logoadv} alt="LOGO" />
         </div>
-        <div className="flex basis-2/3 h-8 flex-nowrap flex-col mr-4">
-          <div className="w-2/3 self-end">
-            <p className="text-sm text-white  italic">
-              <span className="font-semibold text-orange-600">
-                {" "}
-                ¡ESTO ES UN CLON!
-              </span>{" "}
-              Asco de vida recoge anécdotas que han arruinado tu día. ¿Por qué
-              guardártelo para ti cuando puedes sacar una sonrisa a miles de
-              personas? Tu desgracia puede ser nuestra gracia.
-            </p>
-          </div>
-          <div className="self-end">
-            <Button variant="bg-black">
+        <div className=" p-3 flex flex-col items-center gap-2  ">
+          <p className="text-sm text-white  italic text-center sm:text-justify">
+            <span className="font-semibold text-orange-600 mr-2">
+              ¡ESTO ES UN CLON!
+            </span>
+            Asco de vida recoge anécdotas que han arruinado tu día. ¿Por qué
+            guardártelo para ti cuando puedes sacar una sonrisa a miles de
+            personas? Tu desgracia puede ser nuestra gracia.
+          </p>
+
+          <nav className="sm:self-end">
+            <Button>
               <Link to="/newpost">Publicar</Link>
             </Button>
             <Button>
@@ -73,10 +72,10 @@ const Header = () => {
             <Button>
               <Link to="/">Aleatorio</Link>
             </Button>
-          </div>
+          </nav>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

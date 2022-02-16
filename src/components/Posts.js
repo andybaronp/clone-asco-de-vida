@@ -24,7 +24,7 @@ const Posts = () => {
   }, []);
 
   return (
-    <div className=" p-4 ">
+    <div className="   sm:w-4/5 ">
       {data.length > 0 ? (
         data.map((post) => <Post key={post.id} data={post.data} />)
       ) : (

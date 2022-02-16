@@ -9,7 +9,7 @@ const categorys = [
 ];
 const TagsCategorys = () => {
   return (
-    <div className="text-white w-48   p-4 m-3">
+    <div className="text-white     p-4 m-3">
       <div>TagsCategorys</div>
       <ul className="flex flex-row flex-wrap">
         {categorys.map((category) => (
