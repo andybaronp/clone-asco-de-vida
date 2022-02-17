@@ -25,7 +25,7 @@ const Category = () => {
     };
     getDataPosts();
     setData({ ...data, isLoading: false });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [category]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="flex  flex-col  sm:flex-row">
