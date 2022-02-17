@@ -2,10 +2,10 @@ import { onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { getDataPost } from "../utils/useApi";
 import Post from "./Post";
-import Spiner from "./Spiner";
+import Spinner from "./Spinner";
 const Posts = () => {
   const [data, setData] = useState({});
-  //loading
+
   const getDataPosts = async () => {
     //getdata firebase
     const posts = await getDataPost();
@@ -28,7 +28,7 @@ const Posts = () => {
       {data.length > 0 ? (
         data.map((post) => <Post key={post.id} data={post.data} />)
       ) : (
-        <Spiner />
+        <Spinner />
       )}
     </div>
   );

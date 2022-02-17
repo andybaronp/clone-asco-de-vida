@@ -4,12 +4,11 @@ import { useParams } from "react-router-dom";
 import { db } from "../firebase";
 import Post from "./Post";
 import TagsCategorys from "./TagsCategorys";
-
 const Category = () => {
   const { category } = useParams();
 
   const [data, setData] = useState({ data: [], isLoading: true });
-  const consulta = async (category) => {
+  const getData = async (category) => {
     const q = query(collection(db, "posts"), where("category", "==", category));
 
     const querySnapshot = await getDocs(q);
@@ -22,13 +21,11 @@ const Category = () => {
 
   useEffect(() => {
     const getDataPosts = async () => {
-      return await consulta(category);
+      return await getData(category);
     };
     getDataPosts();
     setData({ ...data, isLoading: false });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  if (data.isLoading) return <div className="text-center">Cargando...</div>;
 
   return (
     <div className="flex  flex-col  sm:flex-row">

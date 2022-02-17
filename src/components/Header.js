@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../context/authContex";
 import Button from "./Button";
+import Spinner from "./Spinner";
 const Header = () => {
   const { user, logout, loading } = useAuth();
   const [error, setError] = useState();
@@ -16,7 +17,7 @@ const Header = () => {
       setError(error.message);
     }
   };
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Spinner />;
 
   return (
     <header className="mb-2">
@@ -49,8 +50,10 @@ const Header = () => {
       </div>
 
       <div className=" h-60  sm:h-auto   p-3 flex flex-col sm:flex-row items-center  gap-2">
-        <div className="  flex justify-center w-48  sm:w-96">
-          <img src={logoadv} alt="LOGO" />
+        <div className="  flex justify-center w-48  sm:w-96 hover:scale-105">
+          <Link to={"/"}>
+            <img src={logoadv} alt="LOGO" />
+          </Link>
         </div>
         <div className=" p-3 flex flex-col items-center gap-2  ">
           <p className="text-sm text-white  italic text-center sm:text-justify">
@@ -62,14 +65,14 @@ const Header = () => {
             personas? Tu desgracia puede ser nuestra gracia.
           </p>
 
-          <nav className="sm:self-end">
+          <nav className="sm:self-end  ">
             <Button>
               <Link to="/newpost">Publicar</Link>
             </Button>
-            <Button>
+            <Button variant={"pointer-events-none  opacity-70 "}>
               <Link to="/">Moderar</Link>
             </Button>
-            <Button>
+            <Button variant={"pointer-events-none  opacity-70 "}>
               <Link to="/">Aleatorio</Link>
             </Button>
           </nav>
