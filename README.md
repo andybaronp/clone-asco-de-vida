@@ -12,6 +12,8 @@ This a clone the [ascodevida.com](https://www.ascodevida.com) made with Tailwind
 
 ![Imgur](https://i.imgur.com/3AqQ4qI.png "ADVClone")
 
+⌨️ with ❤️💪🏻 [Jhoandris B](https://github.com/andybaronp). 😊
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
