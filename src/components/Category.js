@@ -25,11 +25,11 @@ const Category = () => {
     };
     getDataPosts();
     setData({ ...data, isLoading: false });
-  }, [category]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [category]); // eslint-disable-line
 
   return (
-    <div className="flex  flex-col  sm:flex-row">
-      <main className=" flex justify-center ">
+    <div className="flex flex-col sm:flex-row">
+      <main className="flex justify-center ">
         <div className=" sm:w-4/5">
           {data.data.map((post) => (
             <Post key={post.id} data={post} />

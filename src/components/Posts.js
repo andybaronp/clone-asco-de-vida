@@ -2,7 +2,6 @@ import { onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { getDataPost } from "../utils/useApi";
 import Post from "./Post";
-import Spinner from "./Spinner";
 const Posts = () => {
   const [data, setData] = useState({});
 
@@ -24,7 +23,7 @@ const Posts = () => {
   }, []);
 
   return (
-    <div className="   sm:w-4/5 ">
+    <div className=" sm:w-4/5">
       {data.length > 0
         ? data.map((post) => <Post key={post.id} data={post.data} />)
         : null}
