@@ -1,63 +1,64 @@
-import React from "react";
-import logo from "../assets/logo2.png";
-import logoadv from "../assets/logoadv.png";
+import React, { useState } from 'react'
+import logo from '../assets/logo2.png'
+import logoadv from '../assets/logoadv.png'
 
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useAuth } from "../context/authContex";
-import Button from "./Button";
-import Spinner from "./Spinner";
+import { Link } from 'react-router-dom'
+import { useAuth } from '../context/authContex'
+import Button from './Button'
+import Spinner from './Spinner'
 const Header = () => {
-  const { user, logout, loading } = useAuth();
-  const [error, setError] = useState();
+  const { user, logout, loading } = useAuth()
+  const [error, setError] = useState()
   const handleLogout = async () => {
     try {
-      await logout();
+      await logout()
     } catch (error) {
-      setError(error.message);
+      setError(error.message)
     }
-  };
-  if (loading) return <Spinner />;
+  }
+  if (loading) return <Spinner />
 
   return (
-    <header className="mb-2">
-      <div className=" sm:h-12  flex sm:flex-row flex-nowrap justify-between items-center p-3  bg-neutral-900">
-        <Link to={"/"}>
-          <img src={logo} alt="Logo" className="h-10 min-w-fit" />
+    <header className='mb-2'>
+      <div className=' sm:h-12  flex sm:flex-row flex-nowrap justify-between items-center p-3  bg-neutral-900'>
+        <Link to='/'>
+          <img src={logo} alt='Logo' className='h-10 min-w-fit' />
         </Link>
 
         <div>
           {error && <alert message={error} />}
-          <div className="flex align-middle   justify-between">
-            <h2 className="mr-6  text-white font-semibold">
-              {user ? user.displayName || user.email : "Anonimo"}
+          <div className='flex align-middle   justify-between'>
+            <h2 className='mr-6  text-white font-semibold'>
+              {user ? user.displayName || user.email : 'Anonimo'}
             </h2>
-            {user ? (
-              <Button action={handleLogout}>Logout </Button>
-            ) : (
-              <div className="flex justify-between">
-                <Button>
-                  <Link to="/login">Login</Link>
-                </Button>
+            {user
+              ? (
+                <Button action={handleLogout}>Logout </Button>
+                )
+              : (
+                <div className='flex justify-between'>
+                  <Button>
+                    <Link to='/login'>Login</Link>
+                  </Button>
 
-                <Button>
-                  <Link to="/register">Register</Link>
-                </Button>
-              </div>
-            )}
+                  <Button>
+                    <Link to='/register'>Register</Link>
+                  </Button>
+                </div>
+                )}
           </div>
         </div>
       </div>
 
-      <div className=" h-60  sm:h-auto   p-3 flex flex-col sm:flex-row items-center  gap-2">
-        <div className="  flex justify-center w-48  sm:w-96 hover:scale-105">
-          <Link to={"/"}>
-            <img src={logoadv} alt="LOGO" />
+      <div className=' h-60  sm:h-auto   p-3 flex flex-col sm:flex-row items-center  gap-2'>
+        <div className='  flex justify-center w-48  sm:w-96 hover:scale-105'>
+          <Link to='/'>
+            <img src={logoadv} alt='LOGO' />
           </Link>
         </div>
-        <div className=" p-3 flex flex-col items-center gap-2  ">
-          <p className="text-sm text-white  italic text-center sm:text-justify">
-            <span className="font-semibold text-orange-600 mr-2">
+        <div className=' p-3 flex flex-col items-center gap-2  '>
+          <p className='text-sm text-white  italic text-center sm:text-justify'>
+            <span className='font-semibold text-orange-600 mr-2'>
               ¡ESTO ES UN CLON!
             </span>
             Asco de vida recoge anécdotas que han arruinado tu día. ¿Por qué
@@ -65,21 +66,21 @@ const Header = () => {
             personas? Tu desgracia puede ser nuestra gracia.
           </p>
 
-          <nav className="sm:self-end  ">
+          <nav className='sm:self-end  '>
             <Button>
-              <Link to="/newpost">Publicar</Link>
+              <Link to='/newpost'>Publicar</Link>
             </Button>
-            <Button variant={"pointer-events-none  opacity-70 "}>
-              <Link to="/">Moderar</Link>
+            <Button variant='pointer-events-none  opacity-70 '>
+              <Link to='/'>Moderar</Link>
             </Button>
-            <Button variant={"pointer-events-none  opacity-70 "}>
-              <Link to="/">Aleatorio</Link>
+            <Button variant='pointer-events-none  opacity-70 '>
+              <Link to='/'>Aleatorio</Link>
             </Button>
           </nav>
         </div>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
