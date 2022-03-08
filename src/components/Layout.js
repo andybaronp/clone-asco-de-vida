@@ -3,7 +3,7 @@ import TagsCategorys from './TagsCategorys'
 
 const Layout = () => {
   return (
-    <div className='flex  flex-col  sm:flex-row  '>
+    <div className='flex flex-col sm:flex-row '>
       <main className='flex justify-center '>
         <Posts />
       </main>

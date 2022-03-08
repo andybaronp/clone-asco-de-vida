@@ -14,7 +14,7 @@ const Category = () => {
     const querySnapshot = await getDocs(q)
     const newers = querySnapshot.docs.map((doc) => ({
       id: doc.id,
-      ...doc.data()
+      ...doc.data(),
     }))
     setData({ data: newers, isLoading: false })
   }
@@ -25,7 +25,7 @@ const Category = () => {
     }
     getDataPosts()
     setData({ ...data, isLoading: false })
-  }, [category]); // eslint-disable-line
+  }, [category]) // eslint-disable-line
 
   return (
     <div className='flex flex-col sm:flex-row'>
