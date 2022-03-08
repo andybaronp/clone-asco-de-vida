@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from 'react-router'
 
 const Post = ({ id, data }) => {
@@ -21,7 +20,7 @@ const Post = ({ id, data }) => {
         Categoria:
         <span
           onClick={() => handleCategory(data.category)}
-          className='px-2 py-1 text-sm text-orange-500 cursor-pointer  hover:bg-gray-200 hover:text-gray-900'
+          className='px-2 py-1 text-sm text-orange-500 cursor-pointer hover:bg-gray-200 hover:text-gray-900'
         >
           {data.category}
         </span>
