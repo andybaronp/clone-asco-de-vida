@@ -1,25 +1,25 @@
-import { useNavigate } from "react-router";
+import { useNavigate } from 'react-router'
 
 const categorys = [
-  "varios",
-  "amor",
-  "amistad",
-  "picante",
-  "trabajo",
-  "familia",
-];
+  'varios',
+  'amor',
+  'amistad',
+  'picante',
+  'trabajo',
+  'familia'
+]
 const TagsCategorys = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleCategory = (category) => {
-    navigate(`/category/${category}`);
-  };
+    navigate(`/category/${category}`)
+  }
   return (
-    <div className="text-white   flex flex-col  p-4 ">
-      <div className="font-semibold mb-3 self-center  border-b-4 border-orange-500 ">
+    <div className='text-white   flex flex-col  p-4 '>
+      <div className='font-semibold mb-3 self-center  border-b-4 border-orange-500 '>
         TagsCategorys
       </div>
-      <ul className="flex gap-3  font-light flex-wrap">
+      <ul className='flex gap-3  font-light flex-wrap'>
         {categorys.map((category) => (
           <li
             onClick={() => handleCategory(category)}
@@ -31,7 +31,7 @@ const TagsCategorys = () => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default TagsCategorys;
+export default TagsCategorys

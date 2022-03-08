@@ -1,17 +1,17 @@
-import Posts from "./Posts";
-import TagsCategorys from "./TagsCategorys";
+import Posts from './Posts'
+import TagsCategorys from './TagsCategorys'
 
 const Layout = () => {
   return (
-    <div className="flex  flex-col  sm:flex-row  ">
-      <main className="flex justify-center ">
+    <div className='flex flex-col sm:flex-row '>
+      <main className='flex justify-center '>
         <Posts />
       </main>
-      <section className="w-full">
+      <section className='w-full'>
         <TagsCategorys />
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

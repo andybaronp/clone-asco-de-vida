@@ -3,13 +3,13 @@ const Button = ({ action, children, text, variant }) => {
     <button
       onClick={action}
       className={
-        "mx-1 bg-orange-600  text-white py-0.5 px-2 rounded font-semibold hover:bg-orange-800  " +
+        'mx-1 bg-orange-600  text-white py-0.5 px-2 rounded font-semibold hover:bg-orange-800  ' +
         (variant && variant)
       }
     >
-      {children ? children : text}
+      {children || text}
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button
