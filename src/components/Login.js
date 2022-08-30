@@ -89,7 +89,7 @@ const Login = () => {
         className=' py-2 px-3  w-full  bg-blue-700 hover:bg-blue-600 text-white  font-bold  rounded border border-blue-800  '
         onClick={handleGoogleLogin}
       >
-        Goole Login
+        Google Login
       </button>
     </div>
   )
